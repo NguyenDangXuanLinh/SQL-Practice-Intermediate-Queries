@@ -1,0 +1,20 @@
+-- SQL request(s)​​​​​​‌​‌​‌‌​​​‌​​​​‌‌‌​‌​‌‌​‌​ below
+
+
+SELECT 
+    Name AS Item, 
+    Price as ORIGINALPRICE,
+    CASE
+        WHEN Price < 7.00 THEN '5%'
+        WHEN Price >= 7.00 AND Price <= 10.00 THEN '10%'
+        WHEN Price > 10.00 THEN '15%'
+    END AS DISCOUNTPERCENT,
+    ROUND(CASE
+        WHEN Price < 7.00 THEN Price - (Price * 0.05)
+        WHEN Price >= 7.00 AND Price <= 10.00 THEN Price - (Price * 0.1)
+        WHEN Price > 10.00 THEN Price - (Price * 0.15)
+    END, 2) AS DISCOUNTEDPRICE
+FROM 
+    Dishes
+ORDER BY 
+    Item;
