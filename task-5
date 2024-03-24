@@ -1,0 +1,8 @@
+-- SQL request(s)​​​​​​‌​‌​‌‌​​​‌‌​‌‌​‌‌​‌​‌‌​​​ below
+
+SELECT CONCAT('00',EMPLOYEEID) AS ID,
+CONCAT(LASTNAME, ', ',FIRSTNAME) AS NAME,
+LOWER(CONCAT((LEFT(FIRSTNAME,1)),LEFT(LASTNAME, 7))) AS LOGIN,
+CONCAT(USERNAME,'@nadias-garden.com') AS EMAIL
+FROM Employees
+ORDER BY NAME;
